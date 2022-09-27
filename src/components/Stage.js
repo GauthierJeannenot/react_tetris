@@ -1,14 +1,14 @@
 import React from "react";
+import { StyledStage } from "./styles/StyledStage";
+
 import Cell from './Cell';
 
 const Stage = ({ stage }) => {
     return(
-        <div>
-            {/* A l'intérieur du [stage] on map des [rows],
-            à l'intérieur des [rows] on map des [cells], prenant deux arguments - le type : cell et sa clef : x,
-            selon le modéle de notre composant Cell auxquelles on passe en props la clef et le type */}
+        <StyledStage width={stage[0].length} height={stage.length}>
+            {/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map */}
             {stage.map(row => row.map((cell, x) => <Cell  key={x} type={cell[0]}/>))}
-        </div>
+        </StyledStage>
     )
     
 }
